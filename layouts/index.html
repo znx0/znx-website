@@ -4,26 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ .Site.Title }}</title>
+    <!-- Incluindo FontAwesome para os ícones sociais -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
-    <main class="container">
-        <header>
-            <h1>0xznx</h1>
-            <p class="subtitle">David Alves // Electrical Engineering & Cybersecurity</p>
-        </header>
 
-        <section class="bio">
-            <p>Welcome. I focus on network infrastructure, hardware security, systems engineering, and CTF writeups.</p>
-        </section>
+    <!-- 1. Cabeçalho com o Nome e Abas à Direita -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="/" class="brand-name">David Alves</a>
+            <nav class="nav-links">
+                <a href="/">HOME</a>
+                <a href="/write-ups">Write-Ups</a>
+                <a href="/cv">CV</a>
+            </nav>
+        </div>
+    </header>
 
-        <section class="links">
-            <h2>// Links</h2>
-            <ul>
-                <li><a href="https://github.com/znx0" target="_blank">GitHub</a></li>
-                <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
-            </ul>
-        </section>
+    <!-- 2. Conteúdo Central -->
+    <main class="hero-container">
+        <div class="hero-content">
+            <!-- Foto de Perfil Circular -->
+            <img src="/avatar.jpg" alt="David Alves" class="profile-pic">
+
+            <!-- Nome Principal -->
+            <h1 class="hero-name">0xznx</h1>
+
+            <!-- Descrição Secundária -->
+            <p class="hero-subtitle">Student, Hacker & Fighter</p>
+
+            <!-- 3. Ícones Sociais como Hyperlinks -->
+            <div class="social-icons">
+                <a href="https://github.com/znx0" target="_blank" title="GitHub" data-tooltip="znx0"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/davidacalves" target="_blank" title="LinkedIn" data-tooltip="David Alves"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:znx0@proton.me" title="Email" data-tooltip="znx0@proton.me"><i class="fas fa-envelope"></i></a>
+		<a href="https://discord.com/users/376361862062669824" target="_blank" title="Discord" data-tooltip="0xzηx ツ"><i class="fab fa-discord"></i></a>
+		<a href="https://steamcommunity.com/id/znx__/" target="_blank" title="Steam" data-tooltip="I miss her ツ"><i class="fab fa-steam"></i></a>
+		<a href="/pgp.asc" target="_blank" data-tooltip="PGP Key"><i class="fas fa-key"></i></a>
+            </div>
+        </div>
     </main>
+
 </body>
 </html>

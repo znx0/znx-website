@@ -1,56 +1,144 @@
 :root {
-    --bg-color: #0d1117;
-    --text-color: #c9d1d9;
-    --accent-color: #58a6ff;
-    --border-color: #30363d;
+    --bg-color: #0d1117; /* Fundo escuro do GitHub/exemplo */
+    --text-color: #f0f6fc; /* Texto quase branco */
+    --accent-color: #58a6ff; /* Cor de destaque (links) */
+    --hover-color: #f0f6fc; /* Cor de texto no hover */
+    --font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
-    font-family: 'Courier New', Courier, monospace;
+    font-family: var(--font-family);
     margin: 0;
-    padding: 2rem;
+    padding: 0;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+    box-sizing: border-box;
 }
 
-.container {
-    max-width: 650px;
+/* --- Cabeçalho (Header) --- */
+.main-header {
     width: 100%;
+    padding: 1.5rem 0;
+    position: absolute; /* Fixa-o no topo sobre o conteúdo */
+    top: 0;
 }
 
-h1 {
-    color: var(--accent-color);
-    font-size: 2rem;
-    margin-bottom: 0.2rem;
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between; /* Alinha nome à esq, links à dir */
+    align-items: center;
 }
 
-.subtitle {
-    color: #8b949e;
-    margin-top: 0;
-}
-
-section {
-    margin-top: 2rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--border-color);
-}
-
-a {
-    color: var(--accent-color);
+.brand-name {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--text-color);
     text-decoration: none;
 }
 
-a:hover {
-    text-decoration: underline;
+.nav-links a {
+    color: #a0a0a0; /* Cor secundária para os menus */
+    text-decoration: none;
+    margin-left: 1.5rem; /* Espaço entre as abas */
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 1px; /* Espaçamento de letras como no exemplo */
+    transition: color 0.2s ease;
 }
 
-ul {
-    list-style-type: none;
-    padding: 0;
+.nav-links a:hover {
+    color: var(--text-color); /* Fica branco no hover */
 }
 
-li {
+/* --- Conteúdo Central (Hero) --- */
+.hero-container {
+    flex: 1; /* Ocupa o resto da altura da janela */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centraliza tudo na vertical e horizontal */
+    padding-top: 6rem; /* Compensa o header absoluto */
+}
+
+.hero-content {
+    text-align: center; /* Centraliza o texto */
+    max-width: 700px;
+    padding: 2rem;
+}
+
+.profile-pic {
+    width: 120px; /* Tamanho da foto do exemplo */
+    height: 120px;
+    border-radius: 50%; /* Torna-a circular */
+    object-fit: cover;
+    border: 2px solid #30363d; /* Borda subtil */
+    margin-bottom: 1.5rem;
+}
+
+.hero-name {
+    font-size: 3rem; /* Nome grande e impactante */
     margin: 0.5rem 0;
+    color: var(--text-color);
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: #8b949e;
+    font-weight: 300;
+    margin-bottom: 2rem;
+}
+
+/* --- Ícones Sociais --- */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.social-icons a {
+    color: #a0a0a0;
+    font-size: 1.5rem;
+    text-decoration: none;
+    position: relative; /* Essencial para alinhar o texto por baixo do ícone */
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.social-icons a:hover {
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* Tooltip flutuante */
+.social-icons a::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: 140%; /* Posiciona abaixo do ícone */
+    left: 50%;
+    transform: translateX(-50%) translateY(-4px);
+    
+    background-color: #161b22;
+    color: #58a6ff;
+    font-size: 0.75rem;
+    font-family: monospace;
+    padding: 4px 8px;
+    border-radius: 6px;
+    border: 1px solid #30363d;
+    white-space: nowrap;
+    
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 100;
+}
+
+/* Revela o texto no hover */
+.social-icons a:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
 }
