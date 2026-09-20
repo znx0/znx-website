@@ -1,3 +1,19 @@
 baseURL = 'https://0xznx.com/'
 languageCode = 'en-us'
 title = 'znx // David Alves'
+ [menu]
+ 
+ [[menu.main]]
+    name = "HOME"
+    url = "/"
+    weight = 1
+
+  [[menu.main]]
+    name = "BLOG"
+    url = "/blog/"
+    weight = 2
+
+  [[menu.main]]
+    name = "CV"
+    url = "/cv/"
+    weight = 3
