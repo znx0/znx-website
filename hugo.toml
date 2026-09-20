@@ -13,8 +13,8 @@ title = 'znx // David Alves'
     weight = 1
 
   [[menu.main]]
-    name = "BLOG"
-    url = "/blog/"
+    name = "0xDump"
+    url = "/Dump/"
     weight = 2
 
   [[menu.main]]
