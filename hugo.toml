@@ -1,9 +1,13 @@
 baseURL = 'https://0xznx.com/'
 languageCode = 'en-us'
 title = 'znx // David Alves'
- [menu]
- 
- [[menu.main]]
+
+[params]
+  avatar = "static/avatar.png"
+
+[menu]
+
+  [[menu.main]]
     name = "HOME"
     url = "/"
     weight = 1
