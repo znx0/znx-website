@@ -2,9 +2,9 @@ baseURL = 'https://0xznx.com/'
 languageCode = 'en-us'
 title = 'znx // David Alves'
 
-[extra]
-   favicon = "/avatar.png"
-
+[params]
+   favicon_32 = "/avatar.png"
+   favicon_16 = "/avatar.png"
 [menu]
 
   [[menu.main]]
