@@ -2,16 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/cv/pt/</loc>
+    <loc>https://0xznx.com/cv/pt/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="/cv/"
+                href="https://0xznx.com/cv/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="pt"
-                href="/cv/pt/"
+                href="https://0xznx.com/cv/pt/"
                 />
   </url>
 </urlset>
