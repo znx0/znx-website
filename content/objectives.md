@@ -16,6 +16,6 @@ title: "Objectives"
 ## Completed
 
 - [x] Build my own website [0xznx.com](http://0xznx.com).
-- [x] Built and documented my [1st project](/dump/lcd-dht11/) on GitHub.
+- [x] Built and documented my [1st project](https://github.com/znx0/LCD-DHT11) on GitHub.
 - [x] Started competing in CTFs.
 - [x] Attended a CyberSecurity Conference ([HackAICon 2025](https://hackaicon.ethiack.com/)).
