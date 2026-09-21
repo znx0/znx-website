@@ -14,7 +14,7 @@ title = 'znx // David Alves'
 
   [[menu.main]]
     name = "0xDump"
-    url = "/Dump/"
+    url = "/dump/"
     weight = 2
 
   [[menu.main]]

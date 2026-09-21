@@ -152,3 +152,25 @@ body {
   z-index: -1;
   background: #0d1117;
 }
+
+/* --- Páginas de conteúdo (ex: /dump) --- */
+.page-container {
+  flex: 1;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 8rem 2rem 4rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.markdown-content h2 {
+  color: var(--text-color);
+  border-bottom: 1px solid #30363d;
+  padding-bottom: 0.5rem;
+  margin-top: 2.5rem;
+}
+
+.markdown-content p {
+  color: #8b949e;
+  line-height: 1.6;
+}
