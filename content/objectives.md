@@ -6,7 +6,7 @@ title: "Objectives"
 
 - [ ] Getting my masters in CyberSecurity.
 - [ ] Set up a Pi-hole DNS sinkhole for network-wide ad blocking.
-- [ ] Connect the [LCD/DHT11 monitor](/dump/lcd-dht11/) to a Raspberry Pi home server to display live CPU temp and resource usage.
+- [ ] Connect the [LCD/DHT11 monitor](https://github.com/znx0/LCD-DHT11) to a Raspberry Pi home server to display live CPU temp and resource usage.
 - [ ] Build a proper NAS setup for the home lab.
 - [ ] Get a security certification (Sec+ / Net+ / OSCP).
 - [ ] Contribute to an open-source security tool.
