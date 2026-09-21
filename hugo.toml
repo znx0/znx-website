@@ -18,6 +18,11 @@ title = 'znx // David Alves'
     weight = 2
 
   [[menu.main]]
+    name = "Objectives"
+    url = "/objectives/"
+    weight = 3
+
+  [[menu.main]]
     name = "CV"
     url = "/cv/"
-    weight = 3
+    weight = 4
