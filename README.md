@@ -61,14 +61,14 @@ DNS for `0xznx.com` is managed through Cloudflare, pointing to GitHub Pages.
 
 1. Create a new Markdown file under `content/`, e.g. `content/mypage.md`
 2. Add a menu entry in `hugo.toml`:
-   \`\`\`toml
+   ```toml
    [[menu.main]]
      name = "My Page"
      url = "/mypage/"
      weight = 5
-   \`\`\`
+   ```
 3. Add the same link to the hardcoded nav in `layouts/index.html` (the home page menu is written by hand, not generated from `hugo.toml`)
 
 ## License
 
-Content and code are personal; feel free to reference the structure if you liked it.
+The code of this website is licensed under the [MIT license](https://github.com/znx0/znx-website/blob/main/LICENSE), while the content is licensed under [CC-BY-NC-SA-4.0](https://github.com/znx0/znx-website/blob/main/content/LICENSE).
