@@ -18,7 +18,7 @@ A minimal, hand-written Hugo site (no external theme) featuring:
 - [Hugo](https://gohugo.io/) (static site generator)
 - Hand-written HTML/CSS, no theme or framework
 - Vanilla JavaScript for the animated background (`static/js/particles-bg.js`) — no external libraries.
-  Visual concept inspired by [ryanmontgomery.me](https://ryanmontgomery.me/)
+  [tsparticles](https://github.com/tsparticles/tsparticles) is a solid alternative if you want more features out ofthe box.
 - [Font Awesome](https://fontawesome.com/) for icons (loaded via Kit)
 - Hosted on **GitHub Pages**, DNS/CDN through **Cloudflare**
 
