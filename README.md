@@ -24,6 +24,7 @@ A minimal, hand-written Hugo site (no external theme) featuring:
 
 # Project Structure
 
+```
 .
 ├── content/ # Markdown content (dump.md, objectives.md, ...)
 ├── layouts/
@@ -37,7 +38,7 @@ A minimal, hand-written Hugo site (no external theme) featuring:
 │ └── CNAME # Custom domain (0xznx.com)
 ├── hugo.toml
 └── .github/workflows/ # GitHub Actions: build & deploy to GitHub Pages
-
+```
 
 ## Running locally
 
