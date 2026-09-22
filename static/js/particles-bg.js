@@ -5,12 +5,12 @@
 
   const AREA_PER_PARTICLE = 9000;
   const MIN_PARTICLES = 20;
-  const MAX_PARTICLES = 200;
-  const MAX_DISTANCE = 150;
-  const SPEED = 0.4;
+  const MAX_PARTICLES = 150;
+  const MAX_DISTANCE = 120;
+  const SPEED = 1.5;
 
   const MOUSE_RADIUS = 180;
-  const MOUSE_PULL = 0.008;
+  const MOUSE_PULL = 0.0;
   const MOUSE_MIN_DIST = 50;
   let mouse = { x: null, y: null, active: false };
 
@@ -48,10 +48,6 @@
         const dx = mouse.x - p.x;
         const dy = mouse.y - p.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < MOUSE_RADIUS && dist > MOUSE_MIN_DIST) {
-          p.x += dx * MOUSE_PULL;
-          p.y += dy * MOUSE_PULL;
-        }
       }
     }
   }
