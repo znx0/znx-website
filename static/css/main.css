@@ -212,3 +212,26 @@ body {
   border-top: 1px solid #30363d;
   margin: 2rem 0;
 }
+
+.hero-subtitle {
+  font-family: 'Courier New', monospace;
+  min-height: 3em;
+}
+
+.terminal-cursor {
+  display: inline-block;
+  animation: blink 1s step-start infinite;
+  color: var(--accent-color);
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* --- Nav decrypt effect --- */
+.nav-links a {
+  font-family: 'Courier New', monospace;
+  display: inline-block;
+  min-width: 6ch;
+}
+
