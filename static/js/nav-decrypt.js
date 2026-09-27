@@ -1,6 +1,6 @@
 (function () {
   const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*';
-  const RESOLVE_SPEED = 30;
+  const RESOLVE_SPEED = 50;
   const REVEAL_DELAY = 2;
 
   function scrambleChar() {
