@@ -8,21 +8,16 @@ title = 'znx // David Alves'
 [menu]
 
   [[menu.main]]
-    name = "HOME"
-    url = "/"
-    weight = 1
-
-  [[menu.main]]
     name = "0xDump"
     url = "/dump/"
-    weight = 2
+    weight = 1
 
   [[menu.main]]
     name = "Objectives"
     url = "/objectives/"
-    weight = 3
+    weight = 2
 
   [[menu.main]]
     name = "CV"
     url = "/cv/"
-    weight = 4
+    weight = 3

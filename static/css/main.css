@@ -213,8 +213,12 @@ body {
   margin: 2rem 0;
 }
 
-.hero-subtitle {
+/* --- Terminal typing effect --- */
+.hero-title {
   font-family: 'Courier New', monospace;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--text-color);
   min-height: 3em;
 }
 
@@ -235,3 +239,58 @@ body {
   min-width: 6ch;
 }
 
+
+/* --- Terminal window --- */
+.terminal-window {
+  background-color: rgba(10, 14, 10, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid #1f3d1f;
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  text-align: left;
+  transform: scaleY(0);
+  transform-origin: top;
+  opacity: 0;
+  animation: terminal-open 0.4s ease-out forwards;
+  animation-delay: 0.2s;
+  box-shadow: 0 0 20px rgba(0, 255, 140, 0.08)
+}
+
+@keyframes terminal-open {
+  to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+.terminal-bar {
+  background-color: rgba(15, 21, 15, 0.6);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.6rem 0.8rem;
+  background-color: #161b22;
+  border-bottom: 1px solid #30363d;
+  position: relative;
+}
+
+.terminal-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+}
+
+.dot-red { background-color: #ff5f56; }
+.dot-yellow { background-color: #ffbd2e; }
+.dot-green { background-color: #27c93f; }
+
+.terminal-body {
+  padding: 1.2rem 1.5rem;
+}
+
+.brand-name {
+  font-family: 'Courier New', monospace;
+}

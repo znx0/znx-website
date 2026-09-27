@@ -35,7 +35,7 @@
     }, RESOLVE_SPEED);
   }
 
-  document.querySelectorAll('.nav-links a').forEach((el) => {
+  document.querySelectorAll('.nav-links a, .brand-name').forEach((el) => {
     el.addEventListener('mouseenter', () => decryptEffect(el));
   });
 })();

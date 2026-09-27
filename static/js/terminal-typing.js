@@ -6,7 +6,7 @@
 
   const linesTemplate = [
     { prefix: '> ', text: 'whoami', speed: 60 },
-    { prefix: '', text: '0xznx — Student, Hacker & Fighter', speed: 25, delayBefore: 500 }
+    { prefix: '', text: '0xznx — Student & Hacker', speed: 25, delayBefore: 500 }
   ];
 
   function runSequence() {
@@ -50,5 +50,5 @@
     typeNextChar();
   }
 
-  runSequence();
+  setTimeout(runSequence, 650);
 })();
