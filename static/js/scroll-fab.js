@@ -4,18 +4,20 @@
 
   const icon = fab.querySelector('i');
 
-  // Atualiza apenas o ícone e o aria-label com base no scroll
+  // Atualiza o ícone, aria-label e tooltip com base no scroll
   function updateArrow() {
     const threshold = window.innerHeight * 0.4;
 
     if (window.scrollY > threshold) {
       fab.setAttribute('aria-label', 'Scroll to top');
+      fab.setAttribute('data-tooltip', 'Back to top');
       if (icon) {
         icon.classList.remove('fa-chevron-down');
         icon.classList.add('fa-chevron-up');
       }
     } else {
       fab.setAttribute('aria-label', 'Scroll down');
+      fab.setAttribute('data-tooltip', 'About me');
       if (icon) {
         icon.classList.remove('fa-chevron-up');
         icon.classList.add('fa-chevron-down');
@@ -26,7 +28,7 @@
   // Lógica de clique única e direta
   fab.addEventListener('click', function (e) {
     e.preventDefault(); // Previne qualquer navegação/refresh por omissão
-    
+
     const threshold = window.innerHeight * 0.4;
 
     if (window.scrollY > threshold) {
