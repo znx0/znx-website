@@ -14,42 +14,40 @@
     const lines = linesTemplate.map(l => ({ ...l }));
     let lineIndex = 0;
     let charIndex = 0;
-    let spanOpen = false;
+    const completedLines = [];
 
-    el.innerHTML = '';
+    function render(partialText) {
+      const current = lines[lineIndex];
+      const spanClass = current.type === 'command' ? 'terminal-command' : 'terminal-output-text';
+      const currentLineHTML = `<span class="${spanClass}">${partialText}</span>`;
+      el.innerHTML = [...completedLines, currentLineHTML].join('<br>');
+    }
 
     function typeNextChar() {
       if (lineIndex >= lines.length) {
-        if (spanOpen) { el.innerHTML += '</span>'; spanOpen = false; }
-        el.innerHTML += '<span class="terminal-cursor">_</span>';
+        el.innerHTML = completedLines.join('<br>') + '<span class="terminal-cursor">_</span>';
         setTimeout(runSequence, LOOP_PAUSE);
         return;
       }
 
       const current = lines[lineIndex];
 
-      if (charIndex === 0) {
-        if (lineIndex > 0) el.innerHTML += '<br>';
-
-        const spanClass = current.type === 'command' ? 'terminal-command' : 'terminal-output-text';
-        el.innerHTML += `<span class="${spanClass}">`;
-        spanOpen = true;
-
-        if (current.delayBefore) {
-          const delay = current.delayBefore;
-          current.delayBefore = 0;
-          setTimeout(typeNextChar, delay);
-          return;
-        }
+      if (charIndex === 0 && current.delayBefore) {
+        render('');
+        const delay = current.delayBefore;
+        current.delayBefore = 0;
+        setTimeout(typeNextChar, delay);
+        return;
       }
 
       if (charIndex < current.text.length) {
-        el.innerHTML += current.text[charIndex];
         charIndex++;
+        render(current.text.slice(0, charIndex));
         setTimeout(typeNextChar, current.speed);
       } else {
-        el.innerHTML += '</span>';
-        spanOpen = false;
+        const spanClass = current.type === 'command' ? 'terminal-command' : 'terminal-output-text';
+        completedLines.push(`<span class="${spanClass}">${current.text}</span>`);
+        el.innerHTML = completedLines.join('<br>');
         lineIndex++;
         charIndex = 0;
         setTimeout(typeNextChar, 150);
