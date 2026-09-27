@@ -8,7 +8,7 @@
     const threshold = window.innerHeight * 0.5;
 
     if (window.scrollY > threshold) {
-      fab.href = '#top';
+      fab.href = '/';
       fab.setAttribute('aria-label', 'Scroll to top');
       icon.classList.remove('fa-chevron-down');
       icon.classList.add('fa-chevron-up');
