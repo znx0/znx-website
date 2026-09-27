@@ -39,4 +39,3 @@
     el.addEventListener('mouseenter', () => decryptEffect(el));
   });
 })();
-EOF

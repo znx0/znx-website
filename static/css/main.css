@@ -1,8 +1,8 @@
 :root {
-    --bg-color: #0d1117; /* Fundo escuro do GitHub/exemplo */
-    --text-color: #f0f6fc; /* Texto quase branco */
-    --accent-color: #58a6ff; /* Cor de destaque (links) */
-    --hover-color: #f0f6fc; /* Cor de texto no hover */
+    --bg-color: #0d1117;
+    --text-color: #f0f6fc;
+    --accent-color: #58a6ff;
+    --hover-color: #f0f6fc;
     --font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
@@ -18,12 +18,12 @@ body {
     box-sizing: border-box;
 }
 
-/* --- Cabeçalho (Header) --- */
 .main-header {
     width: 100%;
     padding: 1.5rem 0;
-    position: absolute; /* Fixa-o no topo sobre o conteúdo */
+    position: absolute;
     top: 0;
+    z-index: 100;
 }
 
 .header-container {
@@ -31,7 +31,7 @@ body {
     margin: 0 auto;
     padding: 0 2rem;
     display: flex;
-    justify-content: space-between; /* Alinha nome à esq, links à dir */
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -40,60 +40,52 @@ body {
     font-weight: bold;
     color: var(--text-color);
     text-decoration: none;
+    font-family: 'Courier New', monospace;
+    pointer-events: auto;
 }
 
 .nav-links a {
-    color: #a0a0a0; /* Cor secundária para os menus */
+    color: #a0a0a0;
     text-decoration: none;
-    margin-left: 1.5rem; /* Espaço entre as abas */
+    margin-left: 1.5rem;
     font-size: 0.9rem;
     font-weight: 500;
-    letter-spacing: 1px; /* Espaçamento de letras como no exemplo */
+    letter-spacing: 1px;
     transition: color 0.2s ease;
+    font-family: 'Courier New', monospace;
+    display: inline-block;
+    min-width: 6ch;
 }
 
 .nav-links a:hover {
-    color: var(--text-color); /* Fica branco no hover */
+    color: var(--text-color);
 }
 
-/* --- Conteúdo Central (Hero) --- */
 .hero-container {
-    flex: 1; /* Ocupa o resto da altura da janela */
+    flex: 1;
+    min-height: 100vh;
+    position: relative;
     display: flex;
     justify-content: center;
-    align-items: center; /* Centraliza tudo na vertical e horizontal */
-    padding-top: 6rem; /* Compensa o header absoluto */
+    align-items: center;
+    padding-top: 6rem;
 }
 
 .hero-content {
-    text-align: center; /* Centraliza o texto */
+    text-align: center;
     max-width: 700px;
     padding: 2rem;
 }
 
 .profile-pic {
-    width: 120px; /* Tamanho da foto do exemplo */
+    width: 120px;
     height: 120px;
-    border-radius: 50%; /* Torna-a circular */
+    border-radius: 50%;
     object-fit: cover;
-    border: 2px solid #30363d; /* Borda subtil */
+    border: 2px solid #30363d;
     margin-bottom: 1.5rem;
 }
 
-.hero-name {
-    font-size: 3rem; /* Nome grande e impactante */
-    margin: 0.5rem 0;
-    color: var(--text-color);
-}
-
-.hero-subtitle {
-    font-size: 1.25rem;
-    color: #8b949e;
-    font-weight: 300;
-    margin-bottom: 2rem;
-}
-
-/* --- Ícones Sociais --- */
 .social-icons {
     display: flex;
     justify-content: center;
@@ -105,7 +97,7 @@ body {
     color: #a0a0a0;
     font-size: 1.5rem;
     text-decoration: none;
-    position: relative; /* Essencial para alinhar o texto por baixo do ícone */
+    position: relative;
     transition: color 0.2s ease, transform 0.2s ease;
 }
 
@@ -114,14 +106,12 @@ body {
     transform: translateY(-2px);
 }
 
-/* Tooltip flutuante */
 .social-icons a::after {
     content: attr(data-tooltip);
     position: absolute;
-    top: 140%; /* Posiciona abaixo do ícone */
+    top: 140%;
     left: 50%;
     transform: translateX(-50%) translateY(-4px);
-    
     background-color: #161b22;
     color: #58a6ff;
     font-size: 0.75rem;
@@ -130,167 +120,282 @@ body {
     border-radius: 6px;
     border: 1px solid #30363d;
     white-space: nowrap;
-    
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.2s ease, transform 0.2s ease;
     z-index: 100;
 }
 
-/* Revela o texto no hover */
 .social-icons a:hover::after {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
 }
 
 #bg-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background: #0d1117;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: #0d1117;
+    pointer-events: none;
 }
 
-/* --- Páginas de conteúdo (ex: /dump) --- */
 .page-container {
-  flex: 1;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 8rem 2rem 4rem;
-  width: 100%;
-  box-sizing: border-box;
+    flex: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 8rem 2rem 4rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .markdown-content h2 {
-  color: var(--text-color);
-  border-bottom: 1px solid #30363d;
-  padding-bottom: 0.5rem;
-  margin-top: 2.5rem;
+    color: var(--text-color);
+    border-bottom: 1px solid #30363d;
+    padding-bottom: 0.5rem;
+    margin-top: 2.5rem;
 }
 
 .markdown-content p {
-  color: #8b949e;
-  line-height: 1.6;
+    color: #8b949e;
+    line-height: 1.6;
 }
 
-/* --- Lista de Projetos / Write-Ups (estilo blog) --- */
 .markdown-content h3 {
-  margin-top: 2.5rem;
-  margin-bottom: 0.4rem;
-  font-size: 1.4rem;
+    margin-top: 2.5rem;
+    margin-bottom: 0.4rem;
+    font-size: 1.4rem;
 }
 
 .markdown-content h3 a {
-  color: var(--text-color);
-  text-decoration: underline;
-  text-decoration-color: var(--accent-color);
-  text-underline-offset: 4px;
+    color: var(--text-color);
+    text-decoration: underline;
+    text-decoration-color: var(--accent-color);
+    text-underline-offset: 4px;
 }
 
 .markdown-content h3 a:hover {
-  color: var(--accent-color);
+    color: var(--accent-color);
 }
 
 .markdown-content em {
-  display: block;
-  color: #8b949e;
-  font-style: normal;
-  font-size: 0.9rem;
-  margin-bottom: 0.8rem;
+    display: block;
+    color: #8b949e;
+    font-style: normal;
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
 }
 
 .markdown-content p a {
-  color: var(--text-color);
-  text-decoration: underline;
-  text-decoration-color: var(--accent-color);
+    color: var(--text-color);
+    text-decoration: underline;
+    text-decoration-color: var(--accent-color);
 }
 
 .markdown-content hr {
-  border: none;
-  border-top: 1px solid #30363d;
-  margin: 2rem 0;
+    border: none;
+    border-top: 1px solid #30363d;
+    margin: 2rem 0;
 }
 
-/* --- Terminal typing effect --- */
-.hero-title {
-  font-family: 'Courier New', monospace;
-  font-size: 1.75rem;
-  font-weight: 600;
-  color: var(--text-color);
-  min-height: 3em;
-}
-
-.terminal-cursor {
-  display: inline-block;
-  animation: blink 1s step-start infinite;
-  color: var(--accent-color);
-}
-
-@keyframes blink {
-  50% { opacity: 0; }
-}
-
-/* --- Nav decrypt effect --- */
-.nav-links a {
-  font-family: 'Courier New', monospace;
-  display: inline-block;
-  min-width: 6ch;
-}
-
-
-/* --- Terminal window --- */
 .terminal-window {
-  background-color: rgba(10, 14, 10, 0.55);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border: 1px solid #1f3d1f;
-  border-radius: 8px;
-  overflow: hidden;
-  max-width: 600px;
-  margin: 0 auto 2rem;
-  text-align: left;
-  transform: scaleY(0);
-  transform-origin: top;
-  opacity: 0;
-  animation: terminal-open 0.4s ease-out forwards;
-  animation-delay: 0.2s;
-  box-shadow: 0 0 20px rgba(0, 255, 140, 0.08)
+    background-color: rgba(10, 14, 10, 0.55);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid #1f3d1f;
+    border-radius: 8px;
+    overflow: visible;
+    max-width: 1000px;
+    margin: 0 auto 2rem;
+    text-align: left;
+    transform: scaleY(0);
+    transform-origin: top;
+    opacity: 0;
+    animation: terminal-open 0.4s ease-out forwards;
+    animation-delay: 0.2s;
+    box-shadow: 0 0 20px rgba(0, 255, 140, 0.08);
 }
 
 @keyframes terminal-open {
-  to {
-    transform: scaleY(1);
-    opacity: 1;
-  }
+    to {
+        transform: scaleY(1);
+        opacity: 1;
+    }
 }
 
 .terminal-bar {
-  background-color: rgba(15, 21, 15, 0.6);
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 0.6rem 0.8rem;
-  background-color: #161b22;
-  border-bottom: 1px solid #30363d;
-  position: relative;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0.6rem 0.8rem;
+    background-color: rgba(15, 21, 15, 0.6);
+    border-bottom: 1px solid #1f3d1f;
+    position: relative;
 }
 
 .terminal-dot {
-  width: 11px;
-  height: 11px;
-  border-radius: 50%;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
 }
 
 .dot-red { background-color: #ff5f56; }
 .dot-yellow { background-color: #ffbd2e; }
 .dot-green { background-color: #27c93f; }
 
-.terminal-body {
-  padding: 1.2rem 1.5rem;
+.terminal-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #4a7a4a;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 0.75rem;
 }
 
-.brand-name {
-  font-family: 'Courier New', monospace;
+.terminal-body {
+    padding: 1.2rem 1.5rem;
 }
+
+.hero-title {
+    min-height: 3em;
+}
+
+.terminal-cursor {
+    display: inline-block;
+    font-size: 0.95rem !important;
+    animation: blink 1s step-start infinite;
+    color: #39ff9d !important;
+    text-shadow: 0 0 6px rgba(57, 255, 157, 0.4) !important;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* Comandos e Prompts a Verde Néon (Tamanho uniforme) */
+.terminal-command,
+.about-prompt {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 0.95rem !important;
+    font-weight: 600;
+    color: #39ff9d !important;
+    text-shadow: 0 0 6px rgba(57, 255, 157, 0.4) !important;
+}
+
+/* Resposta/Output a Branco/Cinza */
+.terminal-output-text {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 0.95rem !important;
+    font-weight: 400;
+    color: #c9d1d9 !important;
+    text-shadow: none !important;
+    line-height: 1.6;
+}
+
+.neofetch-avatar {
+    width: 110px;
+    height: 110px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 1px solid #1f3d1f;
+    flex-shrink: 0;
+}
+
+.neofetch-info {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 0.95rem;
+    color: #c9d1d9;
+    line-height: 1.6;
+}
+
+.neofetch-header {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #39ff9d;
+}
+
+.neofetch-at {
+    color: #8b949e;
+}
+
+.neofetch-divider {
+    color: #1f3d1f;
+    margin-bottom: 0.4rem;
+}
+
+.neofetch-key {
+    color: #39ff9d;
+    font-weight: 600;
+}
+
+.hero-neofetch-block {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.4s ease, max-height 0.4s ease;
+    margin-top: 0;
+}
+
+.hero-neofetch-block.visible {
+    max-height: 300px;
+    opacity: 1;
+    margin-top: 1.2rem;
+}
+
+.about-section {
+    padding: 4rem 2rem 6rem;
+    display: flex;
+    justify-content: center;
+}
+
+.about-terminal {
+    max-width: 700px;
+    width: 100%;
+    margin: 0;
+}
+
+.about-body {
+    padding: 1.8rem 2rem;
+}
+
+.about-prompt:first-child {
+    margin-top: 0;
+}
+
+.about-text {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 1.05rem;
+    color: #c9d1d9;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.about-cta {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.about-cta:hover {
+    text-decoration: underline;
+}
+
+.scroll-fab {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #8b949e;
+    font-size: 1.5rem;
+    text-decoration: none;
+    z-index: 10;
+    transition: color 0.2s ease;
+}
+
+.scroll-fab:hover {
+    color: var(--accent-color);
+}
+

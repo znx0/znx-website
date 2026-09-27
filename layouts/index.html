@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ .Site.Title }}</title>
-    <!-- Incluindo FontAwesome para os ícones sociais -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="/avatar.png">
     <link rel="stylesheet" href="/css/main.css">
 </head>
-<body>
+<body id="top">
     <canvas id="bg-canvas"></canvas>
 
-    <!-- 1. Cabeçalho com o Nome e Abas à Direita -->
     <header class="main-header">
         <div class="header-container">
             <a href="/" class="brand-name">David Alves</a>
@@ -24,38 +25,55 @@
         </div>
     </header>
 
-    <!-- 2. Conteúdo Central -->
     <main class="hero-container">
         <div class="hero-content">
-            <!-- Foto de Perfil Circular -->
             <img src="/avatar.png" alt="David Alves" class="profile-pic">
 
-    <!-- Descrição Principal -->
-    <div class="terminal-window" id="terminal-window">
-        <div class="terminal-bar">
-            <span class="terminal-dot dot-red"></span>
-            <span class="terminal-dot dot-yellow"></span>
-            <span class="terminal-dot dot-green"></span>
-        </div>
-        <div class="terminal-body">
-            <p class="hero-title" id="terminal-output"></p>
-        </div>
-    </div>
+            <div class="terminal-window" id="terminal-window">
+                <div class="terminal-bar">
+                    <span class="terminal-dot dot-red"></span>
+                    <span class="terminal-dot dot-yellow"></span>
+                    <span class="terminal-dot dot-green"></span>
+                    <span class="terminal-title">znx㉿0xznx</span>
+                </div>
 
-            <!-- 3. Ícones Sociais como Hyperlinks -->
+                <div class="terminal-body">
+                    <p class="hero-title" id="terminal-output"></p>
+                </div>
+            </div>
+
             <div class="social-icons">
                 <a href="https://github.com/znx0" target="_blank" title="GitHub" data-tooltip="znx0"><i class="fab fa-github"></i></a>
                 <a href="https://linkedin.com/in/davidacalves" target="_blank" title="LinkedIn" data-tooltip="David Alves"><i class="fab fa-linkedin"></i></a>
                 <a href="mailto:david@0xznx.com" title="Email" data-tooltip="david@0xznx.com"><i class="fas fa-envelope"></i></a>
-		<a href="https://discord.com/users/376361862062669824" target="_blank" title="Discord" data-tooltip="0xzηx ツ"><i class="fab fa-discord"></i></a>
-		<a href="https://steamcommunity.com/id/znx__/" target="_blank" title="Steam" data-tooltip="I miss her ツ"><i class="fab fa-steam"></i></a>
-		<a href="/pgp.asc" target="_blank" data-tooltip="PGP Key"><i class="fas fa-key"></i></a>
+                <a href="https://discord.com/users/376361862062669824" target="_blank" title="Discord" data-tooltip="0xzηx ツ"><i class="fab fa-discord"></i></a>
+                <a href="https://steamcommunity.com/id/znx__/" target="_blank" title="Steam" data-tooltip="I miss her ツ"><i class="fab fa-steam"></i></a>
+                <a href="/pgp.asc" target="_blank" data-tooltip="PGP Key"><i class="fas fa-key"></i></a>
             </div>
         </div>
     </main>
 
+    <section class="about-section" id="about">
+        <div class="terminal-window about-terminal">
+            <div class="terminal-bar">
+                <span class="terminal-dot dot-red"></span>
+                <span class="terminal-dot dot-yellow"></span>
+                <span class="terminal-dot dot-green"></span>
+                <span class="terminal-title">znx㉿0xznx: MUDAR</span>
+            </div>
+
+            <div class="terminal-body about-body">
+            </div>
+        </div>
+    </section>
+
+    <a href="#about" class="scroll-fab" id="scroll-fab" aria-label="Scroll down">
+        <i class="fa-solid fa-chevron-down"></i>
+    </a>
+
     <script src="/js/particles-bg.js"></script>
     <script src="/js/terminal-typing.js"></script>
     <script src="/js/nav-decrypt.js"></script>
+    <script src="/js/scroll-fab.js"></script>
 </body>
 </html>
