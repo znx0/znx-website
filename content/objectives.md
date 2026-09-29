@@ -8,7 +8,7 @@ title: "Objectives"
 - [ ] Set up a Pi-hole DNS sinkhole for network-wide ad blocking.
 - [ ] Connect the [LCD/DHT11 monitor](https://github.com/znx0/LCD-DHT11) to a Raspberry Pi home server to display live CPU temp and resource usage.
 - [ ] Build a proper NAS setup for the home lab.
-- [ ] Get a security certification (Sec+ / Net+ / OSCP).
+- [ ] Get a security certification (Sec+ / CEH / OSCP).
 - [ ] Contribute to an open-source security tool.
 - [ ] Attend DefCon.
 - [ ] Have a talk with [André Batista](https://0xacb.com).
