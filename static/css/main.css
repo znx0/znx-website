@@ -496,3 +496,27 @@ input[type="checkbox"] {
     accent-color: #39ff9d; /* Torna a checkbox verde quando selecionada (em browsers modernos) */
     cursor: pointer;
 }
+
+.about-links {
+  display: flex;
+  gap: 16rem;
+  flex-wrap: wrap;
+}
+
+.about-greeting {
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #f0f6fc;
+  text-shadow: 0 0 10px rgba(240, 246, 252, 0.6);
+  font-style: normal;
+  letter-spacing: 0.5px;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+.about-quote {
+  color: #f0f6fc;
+  text-shadow: 0 0 10px rgba(240, 246, 252, 0.6);
+  font-weight: 700; 
+  padding: 0.2rem 0.3rem;
+}
