@@ -8,7 +8,7 @@ Live at [0xznx.com](https://0xznx.com)
 
 A minimal, hand-written Hugo site (no external theme) featuring:
 
-- **Home** — landing page with an animated particle background (interactive with mouse) and social links
+- **[Home](https://0xznx.com)** — landing page with an animated particle background (interactive with mouse) and social links
 - **[0xDump](https://0xznx.com/dump/)** — blog-style list of projects and CTF write-ups
 - **[Objectives](https://0xznx.com/objectives/)** — a living checklist of goals, in progress and completed
 - **CV** — redirects to a separate CV site, built and deployed independently (see [znx0/cv](https://github.com/znx0/cv))
@@ -17,29 +17,33 @@ A minimal, hand-written Hugo site (no external theme) featuring:
 
 - [Hugo](https://gohugo.io/) (static site generator)
 - Hand-written HTML/CSS, no theme or framework
-- Vanilla JavaScript for the animated background (`static/js/particles-bg.js`) — no external libraries.
-  [tsparticles](https://github.com/tsparticles/tsparticles) is a solid alternative if you want more features out ofthe box.
+- Vanilla JavaScript **[scripts](https://github.com/znx0/znx-website/tree/main/static/js)**.
 - [Font Awesome](https://fontawesome.com/) for icons (loaded via Kit)
 - Hosted on **GitHub Pages**, DNS/CDN through **Cloudflare**
 
 # Project Structure
-
 ```
 .
-├── content/ # Markdown content (dump.md, objectives.md, ...)
+├── content/
+│   ├── objectives.md
+│   └── dump.md
 ├── layouts/
-│ ├── index.html # Home page template
-│ └── _default/
-│ └──  single.html # Template for standalone pages (dump, objectives)
+│   ├── index.html
+│   └── _default/
+│       └── single.html
 ├── static/
-│ ├── css/main.css # All styling
-│ ├── js/particles-bg.js
-│ ├── avatar.png
-│ └── CNAME # Custom domain (0xznx.com)
+│   ├── css/
+│   │   └── main.css
+│   ├── js/
+│   │   ├── particles-bg.js
+│   │   ├── nav-decrypt.js
+│   │   ├── scroll-fab.js
+│   │   └── terminal-typing.js
+│   ├── avatar.png
+│   └── CNAME
 ├── hugo.toml
-└── .github/workflows/ # GitHub Actions: build & deploy to GitHub Pages
+└── .github/workflows/
 ```
-
 ## Running locally
 
 Requires [Hugo](https://gohugo.io/installation/) (extended version).
