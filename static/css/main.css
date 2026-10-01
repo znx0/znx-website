@@ -456,4 +456,11 @@ a:visited {
   color: inherit;
 }
 
+.objectives a,
+.objectives a:visited {
+  color: #39ff9d !important;
+}
 
+.objectives a:hover {
+  color: 5dffb2 !important;
+}
