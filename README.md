@@ -40,7 +40,7 @@ A minimal, hand-written Hugo site (no external theme) featuring:
 │   │   ├── scroll-fab.js
 │   │   └── terminal-typing.js
 |   ├── cv/
-│   │   ├── index.hmtl
+│   │   └── index.hmtl
 │   ├── avatar.png
 │   └── CNAME
 ├── hugo.toml
