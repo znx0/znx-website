@@ -21,3 +21,8 @@ title = 'znx // David Alves'
     name = "CV"
     url = "/cv/"
     weight = 3
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
