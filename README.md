@@ -39,6 +39,8 @@ A minimal, hand-written Hugo site (no external theme) featuring:
 │   │   ├── nav-decrypt.js
 │   │   ├── scroll-fab.js
 │   │   └── terminal-typing.js
+|   ├── cv/
+│   │   ├── index.hmtl
 │   ├── avatar.png
 │   └── CNAME
 ├── hugo.toml
