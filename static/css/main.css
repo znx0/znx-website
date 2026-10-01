@@ -464,3 +464,35 @@ a:visited {
 .objectives a:hover {
   color: 5dffb2 !important;
 }
+
+a, 
+a:visited, 
+a:link, 
+a:active {
+    color: #39ff9d !important; /* Verde Néon do Kali */
+    text-decoration: none !important; /* Remove o sublinhado feio */
+    transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+a:hover {
+    color: #5dffb2 !important;
+    text-shadow: 0 0 8px rgba(57, 255, 157, 0.6) !important;
+    text-decoration: underline !important;
+}
+
+/* 2. Remover os pontos (bullet points) das listas de tarefas com checkboxes */
+ul {
+    list-style: none !important; /* Esconde os pontos '•' */
+    padding-left: 0 !important;
+}
+
+li {
+    list-style-type: none !important;
+    margin-bottom: 0.5rem;
+}
+
+input[type="checkbox"] {
+    margin-right: 0.5rem;
+    accent-color: #39ff9d; /* Torna a checkbox verde quando selecionada (em browsers modernos) */
+    cursor: pointer;
+}
