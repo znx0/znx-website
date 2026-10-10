@@ -4,12 +4,13 @@ title: "0xDump"
 
 ## [Projects](https://github.com/znx0/Cybersecurity-Projects)
 
-### Embedded Environmental Monitor (LCD / DHT)
-**Embedded System** &middot; <i class="fas fa-microchip" style="color: #00979d;"></i> Arduino &nbsp; <i class="fab fa-cuttlefish" style="color: #00599c;"></i> C++
+### BlackArch Bootstrap Fix (BlackOmarchy)
+**Security** &middot; <i class="fas fa-terminal" style="color: #4eaa25;"></i> Bash
 
-Arduino-based environmental monitoring system pairing a DHT11 sensor with a 16x2 LCD to track temperature and humidity in real time, with dedicated screens for current readings, running averages, and min/max values.
+Fix for the bootstrap of [BlackOmarchy](https://github.com/MahdiHedhli/BlackOmarchy), an additive BlackArch layer for Omarchy by Mahdi Hedhli. I wanted to use the project, but the install failed after the upstream BlackArch `strap.sh` changed and its keyring version and fingerprint could no longer be parsed.
+Instead of patching the parsing, I decoupled the bootstrap from the upstream script. It now discovers the keyring package through the official repository database, verifies its detached GPG signature against an explicit allowlist of trusted signer fingerprints, and checks the installed keyring files against the verified package.
 
-[Read more »](https://github.com/znx0/LCD-DHT11)
+[Read more »](https://github.com/znx0/BlackOmarchy/blob/main/docs/blackarch-bootstrap-compatibility.md)
 
 ### Port Scanner with Python
 **Networking** &middot; <i class="fab fa-python" style="color: #3776ab;"></i> Python
@@ -18,6 +19,13 @@ A simple TCP port scanner written in Python, built as part of my cybersecurity l
 This project is focused on learning the fundamentals of Python networking, TCP connections and port scanning.
 
 [Read more »](https://github.com/znx0/Cybersecurity-Projects/tree/main/projects/networking/port-scanner)
+
+### Embedded Environmental Monitor (LCD / DHT)
+**Embedded System** &middot; <i class="fas fa-microchip" style="color: #00979d;"></i>>
+
+Arduino-based environmental monitoring system pairing a DHT11 sensor with a 16x2 LCD >
+
+[Read more »](https://github.com/znx0/LCD-DHT11)
 
 ---
 
