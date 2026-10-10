@@ -10,7 +10,7 @@ title: "0xDump"
 Fix for the bootstrap of [BlackOmarchy](https://github.com/MahdiHedhli/BlackOmarchy), an additive BlackArch layer for Omarchy by Mahdi Hedhli. I wanted to use the project, but the install failed after the upstream BlackArch `strap.sh` changed and its keyring version and fingerprint could no longer be parsed.
 Instead of patching the parsing, I decoupled the bootstrap from the upstream script. It now discovers the keyring package through the official repository database, verifies its detached GPG signature against an explicit allowlist of trusted signer fingerprints, and checks the installed keyring files against the verified package.
 
-[Read more »](https://github.com/znx0/BlackOmarchy/blob/main/docs/blackarch-bootstrap-compatibility.md)
+[Read more about my Contribution»](https://github.com/znx0/BlackOmarchy/blob/main/docs/blackarch-bootstrap-compatibility.md)
 
 ### Port Scanner with Python
 **Networking** &middot; <i class="fab fa-python" style="color: #3776ab;"></i> Python
