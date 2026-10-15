@@ -1,0 +1,44 @@
+
+<div class="dump-tabs" role="tablist" aria-label="0xDump sections">
+  <button class="dump-tab is-active"
+          id="tab-projects"
+          type="button"
+          role="tab"
+          aria-selected="true"
+          aria-controls="panel-projects"
+          data-dump-tab="projects">
+    <i class="fa-solid fa-folder-open"></i>
+    Projects
+    <span class="dump-tab__count">{{ len .Page.Params.projects }}</span>
+  </button>
+
+  <button class="dump-tab"
+          id="tab-writeups"
+          type="button"
+          role="tab"
+          aria-selected="false"
+          aria-controls="panel-writeups"
+          data-dump-tab="writeups"
+          tabindex="-1">
+    <i class="fa-solid fa-file-code"></i>
+    Write-Ups
+    <span class="dump-tab__count">{{ len .Page.Params.writeups }}</span>
+  </button>
+</div>
+
+<section id="panel-projects"
+         class="dump-panel"
+         role="tabpanel"
+         aria-labelledby="tab-projects"
+         data-dump-panel="projects">
+  {{ partial "dump-projects.html" . }}
+</section>
+
+<section id="panel-writeups"
+         class="dump-panel"
+         role="tabpanel"
+         aria-labelledby="tab-writeups"
+         data-dump-panel="writeups"
+         hidden>
+  {{ partial "dump-writeups.html" . }}
+</section>
