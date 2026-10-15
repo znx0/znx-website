@@ -1,0 +1,45 @@
+<div class="project-grid">
+  {{ range .Page.Params.projects }}
+    <article class="project-card">
+      <div class="project-card__visual {{ .visual }}">
+        <div class="project-card__visual-top">
+          <span class="project-card__file">
+            <i class="fa-solid fa-folder-open"></i>
+            {{ .slug }}
+          </span>
+          <span class="project-card__number">{{ .number }}</span>
+        </div>
+
+        <div class="project-card__visual-icon">
+          <i class="fa-solid {{ .icon }}"></i>
+        </div>
+
+        <span class="project-card__visual-label">
+          {{ .category | upper }}
+        </span>
+      </div>
+
+      <div class="project-card__body">
+        <div class="project-card__meta">
+          <span class="project-card__category">{{ .category }}</span>
+          <span class="project-card__separator">/</span>
+          <span class="project-card__technologies">
+            {{ delimit .technologies " · " }}
+          </span>
+        </div>
+
+        <h3 class="project-card__title">{{ .title }}</h3>
+        <p class="project-card__description">{{ .description }}</p>
+
+        <a class="project-card__link"
+           href="{{ .url }}"
+           target="_blank"
+           rel="noopener noreferrer">
+          {{ .link_label }}
+          <i class="fa-solid fa-arrow-up-right-from-square"
+             aria-hidden="true"></i>
+        </a>
+      </div>
+    </article>
+  {{ end }}
+</div>

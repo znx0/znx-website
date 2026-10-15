@@ -142,7 +142,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
+    z-index: 0;
     background: #0d1117;
     pointer-events: none;
 }
@@ -519,4 +519,421 @@ input[type="checkbox"] {
   text-shadow: 0 0 10px rgba(240, 246, 252, 0.6);
   font-weight: 700; 
   padding: 0.2rem 0.3rem;
+}
+
+/* =========================================
+   0xDump — Project Cards
+   ========================================= */
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+    margin: 1.5rem 0 2.5rem;
+}
+
+.project-card {
+    min-width: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background: rgba(15, 17, 26, 0.88);
+    border: 1px solid #30303f;
+    border-radius: 12px;
+    transition:
+        transform 0.22s ease,
+        border-color 0.22s ease,
+        box-shadow 0.22s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    border-color: #8664bd;
+    box-shadow: 0 8px 28px rgba(132, 91, 201, 0.12);
+}
+
+/* Visual panel */
+
+.project-card__visual {
+    position: relative;
+    min-height: 145px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 80% 70%, rgba(139, 92, 246, 0.18), transparent 55%),
+        linear-gradient(135deg, #171522, #0d1117);
+    border-bottom: 1px solid rgba(139, 92, 246, 0.18);
+}
+
+.project-card__visual::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.18;
+    background-image:
+        linear-gradient(rgba(180, 160, 220, 0.12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(180, 160, 220, 0.12) 1px, transparent 1px);
+    background-size: 22px 22px;
+    mask-image: linear-gradient(to bottom, black, transparent);
+}
+
+.project-card__visual-top,
+.project-card__visual-icon,
+.project-card__visual-label {
+    position: relative;
+    z-index: 1;
+}
+
+.project-card__visual-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    color: #b7a5d9;
+    font: 0.72rem 'Courier New', monospace;
+}
+
+.project-card__file {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.project-card__number {
+    color: #777184;
+}
+
+.project-card__visual-icon {
+    align-self: center;
+    font-size: 2.5rem;
+    color: #b49aff;
+    filter: drop-shadow(0 0 14px rgba(180, 154, 255, 0.3));
+    transition: transform 0.22s ease;
+}
+
+.project-card:hover .project-card__visual-icon {
+    transform: scale(1.1);
+}
+
+.project-card__visual-label {
+    color: #a99abf;
+    font: 0.65rem 'Courier New', monospace;
+    letter-spacing: 0.14em;
+}
+
+/* Individual visual accents */
+
+.project-visual--security {
+    background:
+        radial-gradient(ellipse at 80% 70%, rgba(180, 154, 255, 0.2), transparent 55%),
+        linear-gradient(135deg, #1c1728, #0d1117);
+}
+
+.project-visual--network {
+    background:
+        radial-gradient(ellipse at 80% 70%, rgba(88, 166, 255, 0.2), transparent 55%),
+        linear-gradient(135deg, #121e2b, #0d1117);
+}
+
+.project-visual--embedded {
+    background:
+        radial-gradient(ellipse at 80% 70%, rgba(45, 190, 170, 0.17), transparent 55%),
+        linear-gradient(135deg, #122321, #0d1117);
+}
+
+/* Card content */
+
+.project-card__body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.1rem;
+}
+
+.project-card__meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font: 0.7rem 'Courier New', monospace;
+    line-height: 1.6;
+}
+
+.project-card__category {
+    color: #c4a7ff;
+}
+
+.project-card__separator {
+    color: #55515f;
+}
+
+.project-card__technologies {
+    color: #8b949e;
+}
+
+.project-card__title {
+    margin: 0.25rem 0 0.4rem;
+    font-size: 1.12rem;
+    line-height: 1.4;
+    color: #f0f6fc;
+}
+
+.project-card__description {
+    margin: 0 0 1.2rem;
+    color: #9a9eaa;
+    font-size: 0.88rem;
+    line-height: 1.65;
+}
+
+.project-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: auto;
+    padding-top: 0.4rem;
+    color: #c4a7ff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease, gap 0.2s ease;
+}
+
+.project-card__link:hover {
+    color: #e0d2ff;
+    gap: 0.7rem;
+}
+
+/* Responsive layout */
+
+@media (max-width: 620px) {
+    .project-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1rem;
+    }
+
+   .project-card__visual {
+        min-height: 125px;
+    }
+}
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+    .project-card,
+    .project-card__visual-icon,
+    .project-card__link {
+        transition: none;
+    }
+
+    .project-card:hover,
+    .project-card:hover .project-card__visual-icon {
+        transform: none;
+    }
+}
+
+/* Project cards - layout refinement */
+
+.project-card {
+   position: relative;
+   isolation: isolate;
+   background: rgba(13, 17, 23, 0.96);
+}
+
+.project-card__body {
+    flex: 1;
+}
+
+.project-card__title {
+    min-height: 1em;
+}
+
+.project-card__description {
+    flex: 1;
+}
+
+.project-card__link {
+    margin-top: auto;
+}1
+
+/* =========================================
+   0xDump — Tabs
+   ========================================= */
+
+.dump-tabs {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: stretch;
+    gap: 0;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 0.25rem;
+    margin: 1.75rem 0 1.5rem;
+    border-bottom: 1px solid #30303f !important;
+}
+
+.dump-tab {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    min-width: 0;
+    margin-bottom: -1px;
+    padding: 0.85rem 0 0.9rem;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    background: transparent;
+    color: #8b949e;
+    font: inherit;
+    font-size: 1.15rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.dump-tab:first-child {
+    margin-right: auto !important;
+    justify-content: flex-start;
+    text-align: left;
+}
+
+.dump-tab:last-child {
+    margin-left: auto !important;
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.dump-tab:hover {
+    color: #f0f6fc;
+}
+
+.dump-tab.is-active {
+    color: #00e599;
+    border-bottom-color: #00e599;
+}
+
+.dump-tab i {
+    font-size: 1.15rem;
+}
+
+.dump-tab__count {
+    padding: 0.2rem 0.55rem;
+    border: 1px solid #30303f;
+    border-radius: 999px;
+    color: #8b949e;
+    font-size: 0.75rem;
+}
+
+.dump-tab:focus-visible {
+    outline: 2px solid #00e599;
+    outline-offset: 4px;
+    border-radius: 3px;
+}
+
+.dump-panel[hidden] {
+    display: none !important;
+}
+
+.writeup-example-label {
+    gap: 0.5rem;
+    cursor: default;
+}
+
+@media (max-width: 480px) {
+    .dump-tab {
+        gap: 0.45rem;
+        font-size: 1rem;
+    }
+
+    .dump-tab i {
+        font-size: 1rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .dump-tab {
+        transition: none;
+    }
+}
+
+/*################################################
+Não sei o que se passa com isto
+#################################################*/
+
+/* 0xDump — Tabs: functional baseline */
+
+.dump-tabs {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: stretch;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 1.75rem 0 1.5rem;
+    padding: 0 0.25rem;
+    border-bottom: 1px solid #30303f !important;
+}
+
+.dump-tab {
+    display: inline-flex !important;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: 0.55rem;
+    min-width: 0;
+    margin-bottom: -1px;
+    padding: 0.85rem 0 0.9rem;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    background: transparent;
+    color: #8b949e;
+    font: inherit;
+    font-size: 1.15rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.dump-tab:first-child {
+    margin-right: auto !important;
+}
+
+.dump-tab:last-child {
+    margin-left: auto !important;
+}
+
+.dump-tab:hover {
+    color: #f0f6fc;
+}
+
+.dump-tab.is-active {
+    color: #00e599;
+    border-bottom-color: #00e599;
+}
+
+.dump-tab i {
+    font-size: 1.15rem;
+}
+
+.dump-tab__count {
+    padding: 0.2rem 0.55rem;
+    border: 1px solid #30303f;
+    border-radius: 999px;
+    color: #8b949e;
+    font-size: 0.75rem;
+}
+
+.dump-panel[hidden] {
+    display: none !important;
+}
+
+@media (max-width: 480px) {
+    .dump-tab {
+        gap: 0.45rem;
+        font-size: 1rem;
+    }
 }
