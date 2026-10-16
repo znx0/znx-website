@@ -73,7 +73,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 6rem;
+    padding-top: 2rem;
 }
 
 .hero-content {
@@ -304,14 +304,16 @@ body {
 }
 
 .about-section {
-    padding: 4rem 2rem 6rem;
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 5rem 2rem;
     display: flex;
+    align-items: center;
     justify-content: center;
 }
 
 .about-terminal {
-  max-width: 850px;
-    max-width: 700px;
+    max-width: 600px;
     width: 100%;
     margin: 0;
 }
@@ -352,11 +354,23 @@ body {
     font-size: 1.75rem;
     text-decoration: none;
     z-index: 10;
-    transition: color 0.3s ease, transform 0.3 ease;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
 }
 
 .scroll-fab:hover {
     color: #ffffff;
+}
+
+.scroll-fab-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #00e599;
+    white-space: nowrap;
 }
 
 .about-photo {
@@ -499,8 +513,9 @@ input[type="checkbox"] {
 
 .about-links {
   display: flex;
-  gap: 16rem;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%
 }
 
 .about-greeting {
