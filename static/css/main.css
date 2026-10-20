@@ -952,3 +952,26 @@ Não sei o que se passa com isto
         font-size: 1rem;
     }
 }
+
+# Depois apagar é so teste
+
+.page-container {
+    position: relative;
+    z-index: 1;
+    color: #f0f6fc;
+}
+
+.markdown-content {
+    position: relative;
+    z-index: 1;
+}
+
+.markdown-content ul {
+    display: block;
+    margin: 1rem 0;
+}
+
+.markdown-content li {
+    color: #8b949e;
+    line-height: 1.8;
+}
