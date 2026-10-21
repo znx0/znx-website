@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ .Site.Title }}</title>
+    <meta name="description" content="David Alves — Engineering, Linux and cybersecurity.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,48 +17,122 @@
 
     <header class="main-header">
         <div class="header-container">
-            <a href="/" class="brand-name">David Alves</a>
+            <a href="/" class="brand-name"><span>root@</span>0xznx<span class="brand-cursor">_</span></a>
             <nav class="nav-links">
-		<a href="/about/">About</a>
-                <a href="/dump/">0xDump</a>
-                <a href="/objectives">Objectives</a>
-                <a href="/cv">CV</a>
+                <a href="/about/">01 About</a>
+                <a href="/dump/">02 0xDump</a>
+                <a href="/objectives/">03 Objectives</a>
+                <a href="/cv/">04 CV</a>
             </nav>
         </div>
     </header>
 
-    <main class="hero-container">
-        <div class="hero-content">
-            <img src="/avatar.png" alt="David Alves" class="profile-pic">
+    <main class="hero-container hero-redesign">
+        <section class="hero-intro">
+            <div class="system-status">
+                <span class="status-indicator"></span>
+                SYSTEM.STATUS: ONLINE
+            </div>
 
+            <p class="hero-eyebrow">IDENTITY INTERFACE / 001</p>
+            <h1 class="hero-name">0xznx<span>_</span></h1>
+            <p class="hero-role">Engineering Student &amp; CyberSec Enthusiast<span class="typing-cursor">_</span></p>
+
+            <div class="hero-tags">
+                <span>[ OFFSEC ]</span>
+                <span>[ LINUX ]</span>
+                <span>[ SYSTEMS ]</span>
+            </div>
+
+            <p class="hero-description">
+                Exploring systems, understanding what happens beneath the surface.
+            </p>
+
+	 	<div class="hero-actions">
+		    <button
+		        type="button"
+		        class="hero-button hero-button-primary"
+		        id="init-contact"
+		        aria-expanded="false"
+		        aria-controls="contact-socials">
+		        <i class="fas fa-terminal"></i> init_contact()
+		    </button>
+
+		    <a href="/cv/" class="hero-button">
+		        <i class="fas fa-file-lines"></i> view_resume.pdf
+		    </a>
+		</div>
+
+		<div class="contact-socials" id="contact-socials" hidden>
+		    <div class="social-icons">
+		        <a href="https://github.com/znx0" target="_blank"
+		           rel="noopener noreferrer" title="GitHub"
+		           data-tooltip="znx0">
+		            <i class="fab fa-github"></i>
+		        </a>
+
+		        <a href="https://linkedin.com/in/davidacalves" target="_blank"
+		           rel="noopener noreferrer" title="LinkedIn"
+		           data-tooltip="David Alves">
+		            <i class="fab fa-linkedin"></i>
+		        </a>
+
+		        <a href="mailto:david@0xznx.com" title="Email"
+		           data-tooltip="david@0xznx.com">
+		            <i class="fas fa-envelope"></i>
+		        </a>
+
+		        <a href="https://discord.com/users/376361862062669824"
+		           target="_blank" rel="noopener noreferrer"
+		           title="Discord" data-tooltip="0xzηx ツ">
+		            <i class="fab fa-discord"></i>
+		        </a>
+
+		        <a href="https://steamcommunity.com/id/znx__/" target="_blank"
+		           rel="noopener noreferrer" title="Steam"
+		           data-tooltip="Steam">
+		            <i class="fab fa-steam"></i>
+		        </a>
+
+		        <a href="/pgp.asc" target="_blank"
+		           rel="noopener noreferrer" title="PGP Key"
+		           data-tooltip="PGP Key">
+		            <i class="fas fa-key"></i>
+		        </a>
+		    </div>
+		</div>
+        </section>
+
+        <section class="hero-terminal" aria-label="System initialization terminal">
             <div class="terminal-window" id="terminal-window">
                 <div class="terminal-bar">
                     <span class="terminal-dot dot-red"></span>
                     <span class="terminal-dot dot-yellow"></span>
                     <span class="terminal-dot dot-green"></span>
-                    <span class="terminal-title">znx㉿0xznx</span>
+                    <span class="terminal-title">kitty</span>
                 </div>
 
-                <div class="terminal-body">
-                    <p class="hero-title" id="terminal-output"></p>
-                </div>
-            </div>
+		<div class="terminal-body">
+		    <div class="boot-log" id="terminal-output"
+		         aria-label="Terminal de apresentação">
 
-            <div class="social-icons">
-                <a href="https://github.com/znx0" target="_blank" title="GitHub" data-tooltip="znx0"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/davidacalves" target="_blank" title="LinkedIn" data-tooltip="David Alves"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:david@0xznx.com" title="Email" data-tooltip="david@0xznx.com"><i class="fas fa-envelope"></i></a>
-                <a href="https://discord.com/users/376361862062669824" target="_blank" title="Discord" data-tooltip="0xzηx ツ"><i class="fab fa-discord"></i></a>
-                <a href="https://steamcommunity.com/id/znx__/" target="_blank" title="Steam" data-tooltip="I miss her ツ"><i class="fab fa-steam"></i></a>
-                <a href="/pgp.asc" target="_blank" data-tooltip="PGP Key"><i class="fas fa-key"></i></a>
-            </div>
-        </div>
-    </main>
+		        <p><span class="terminal-prompt">$</span> ./identity.sh</p>
+		        <p>... connection detected</p>
+		        <p>... tracing origin ................. [REDACTED]</p>
+		        <p>... analysing typing pattern ....... 94% match</p>
+		        <p>... checking behaviour ............. curious, persistent, awake</p>
+		        <p>&gt; hello, friend.</p>
+		        <p>&gt; We've been expecting you, 0xznx.</p>
+		        <p><span class="terminal-prompt">$</span>
+		            <span class="terminal-cursor">_</span>
+		        </p>
 
+		    </div>
+		</div>
     <script src="/js/particles-bg.js"></script>
-    <script src="/js/terminal-typing.js"></script>
     <script src="/js/nav-decrypt.js"></script>
-    <script src="/js/scroll-fab.js"></script>
     <script src="/js/dump-tabs.js" defer></script>
+    <script src="/js/contact-toggle.js" defer></script>
 </body>
 </html>
+
