@@ -1,11 +1,19 @@
 
 :root {
-    --bg-color: #0d1117;
-    --text-color: #f0f6fc;
-    --accent-color: #58a6ff;
-    --hover-color: #f0f6fc;
-    --font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --bg-color: #080b09;
+    --text-color: #edf5ef;
+    --accent-color: #48e89a;
+    --hover-color: #ffffff;
+    --font-family: 'JetBrains Mono', monospace;
+
+    --green-muted: #8b9c90;
+    --green-border: #263b2e;
+    --green-glow: rgba(72, 232, 154, 0.12);
 }
+
+/* ========================================
+   1. Base and global layout
+   ======================================== */
 
 html {
     scroll-behavior: smooth;
@@ -82,6 +90,10 @@ body {
     padding: 2rem;
 }
 
+/* ========================================
+   2. Header, navigation and shared hero
+   ======================================== */
+
 .profile-pic {
     width: 150px;
     height: 150px;
@@ -136,6 +148,10 @@ body {
     transform: translateX(-50%) translateY(0);
 }
 
+/* ========================================
+   3. Background and content pages
+   ======================================== */
+
 #bg-canvas {
     position: fixed;
     top: 0;
@@ -148,12 +164,19 @@ body {
 }
 
 .page-container {
+    position: relative;
+    z-index: 1;
     flex: 1;
     max-width: 800px;
     margin: 0 auto;
     padding: 8rem 2rem 4rem;
     width: 100%;
     box-sizing: border-box;
+}
+
+.markdown-content {
+    position: relative;
+    z-index: 1;
 }
 
 .markdown-content h2 {
@@ -208,6 +231,10 @@ body {
 .markdown-content a:visited {
    color: inherit;
 }
+
+/* ========================================
+   4. Shared terminal components
+   ======================================== */
 
 .terminal-window {
     background-color: rgba(10, 14, 10, 0.55);
@@ -345,6 +372,10 @@ body {
     text-decoration: underline;
 }
 
+/* ========================================
+   5. About page and scroll control
+   ======================================== */
+
 .scroll-fab {
     position: fixed;
     bottom: 2.5rem;
@@ -383,7 +414,7 @@ body {
   display: block;
 }
 
-/* --- About: foto grande ao lado do texto (estilo neofetch) --- */
+/* About: large photo and text layout */
 .about-neofetch-layout {
   display: flex;
   gap: 2rem;
@@ -417,7 +448,7 @@ body {
   }
 }
 
-/* --- Tooltip para o scroll-fab --- */
+/* Scroll-to-top tooltip */
 .scroll-fab::after {
   content: attr(data-tooltip);
   position: absolute;
@@ -442,59 +473,38 @@ body {
   transform: translateX(-50%) translateY(0);
 }
 
-.scroll-fab::after {
-  content: attr(data-tooltip);
-  position: absolute;
-  bottom: 140%;
-  left: 50%;
-  transform: translateX(-50%) translateY(4px);
-  background-color: #161b22;
-  color: #58a6ff;
-  font-size: 0.75rem;
-  font-family: monospace;
-  padding: 4px 8px;
-  border-radius: 6px;
-  border: 1px solid #30363d;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.scroll-fab:hover::after {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-}
 
 a:visited {
   color: inherit;
 }
 
-.objectives a,
+.objectives a:link,
 .objectives a:visited {
-  color: #39ff9d !important;
+    color: var(--accent-color);
+    text-decoration: underline;
+    text-decoration-color: rgba(72, 232, 154, 0.45);
+    text-underline-offset: 3px;
 }
 
 .objectives a:hover {
-  color: 5dffb2 !important;
+    color: #5dffb2;
+    text-decoration-color: currentColor;
 }
 
-a, 
-a:visited, 
-a:link, 
+a,
+a:visited,
+a:link,
 a:active {
-    color: #39ff9d !important; /* Verde Néon do Kali */
-    text-decoration: none !important; /* Remove o sublinhado feio */
+    color: inherit;
+    text-decoration: none;
     transition: color 0.2s ease, text-shadow 0.2s ease;
 }
 
 a:hover {
-    color: #5dffb2 !important;
-    text-shadow: 0 0 8px rgba(57, 255, 157, 0.6) !important;
-    text-decoration: underline !important;
+    text-decoration: underline;
 }
 
-/* 2. Remover os pontos (bullet points) das listas de tarefas com checkboxes */
+/* Task lists and checkboxes */
 ul {
     list-style: none !important; /* Esconde os pontos '•' */
     padding-left: 0 !important;
@@ -507,7 +517,7 @@ li {
 
 input[type="checkbox"] {
     margin-right: 0.5rem;
-    accent-color: #39ff9d; /* Torna a checkbox verde quando selecionada (em browsers modernos) */
+    accent-color: #39ff9d; /* Native checkbox accent */
     cursor: pointer;
 }
 
@@ -515,7 +525,7 @@ input[type="checkbox"] {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%
+  width: 100%;
 }
 
 .about-greeting {
@@ -536,8 +546,8 @@ input[type="checkbox"] {
   padding: 0.2rem 0.3rem;
 }
 
-/* =========================================
-   0xDump — Project Cards
+/* ========================================
+   6. 0xDump — Project cards
    ========================================= */
 
 .project-grid {
@@ -548,11 +558,13 @@ input[type="checkbox"] {
 }
 
 .project-card {
+    position: relative;
+    isolation: isolate;
     min-width: 0;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    background: rgba(15, 17, 26, 0.88);
+    background: rgba(13, 17, 23, 0.96);
     border: 1px solid #30303f;
     border-radius: 12px;
     transition:
@@ -694,6 +706,7 @@ input[type="checkbox"] {
 }
 
 .project-card__title {
+    min-height: 1em;
     margin: 0.25rem 0 0.4rem;
     font-size: 1.12rem;
     line-height: 1.4;
@@ -701,6 +714,7 @@ input[type="checkbox"] {
 }
 
 .project-card__description {
+    flex: 1;
     margin: 0 0 1.2rem;
     color: #9a9eaa;
     font-size: 0.88rem;
@@ -753,32 +767,8 @@ input[type="checkbox"] {
     }
 }
 
-/* Project cards - layout refinement */
-
-.project-card {
-   position: relative;
-   isolation: isolate;
-   background: rgba(13, 17, 23, 0.96);
-}
-
-.project-card__body {
-    flex: 1;
-}
-
-.project-card__title {
-    min-height: 1em;
-}
-
-.project-card__description {
-    flex: 1;
-}
-
-.project-card__link {
-    margin-top: auto;
-}1
-
-/* =========================================
-   0xDump — Tabs
+/* ========================================
+   7. 0xDump — Tabs
    ========================================= */
 
 .dump-tabs {
@@ -878,83 +868,6 @@ input[type="checkbox"] {
     }
 }
 
-/*################################################
-Não sei o que se passa com isto
-#################################################*/
-
-/* 0xDump — Tabs: functional baseline */
-
-.dump-tabs {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: stretch;
-    width: 100%;
-    box-sizing: border-box;
-    margin: 1.75rem 0 1.5rem;
-    padding: 0 0.25rem;
-    border-bottom: 1px solid #30303f !important;
-}
-
-.dump-tab {
-    display: inline-flex !important;
-    flex: 0 0 auto;
-    align-items: center;
-    gap: 0.55rem;
-    min-width: 0;
-    margin-bottom: -1px;
-    padding: 0.85rem 0 0.9rem;
-    border: 0;
-    border-bottom: 2px solid transparent;
-    background: transparent;
-    color: #8b949e;
-    font: inherit;
-    font-size: 1.15rem;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-.dump-tab:first-child {
-    margin-right: auto !important;
-}
-
-.dump-tab:last-child {
-    margin-left: auto !important;
-}
-
-.dump-tab:hover {
-    color: #f0f6fc;
-}
-
-.dump-tab.is-active {
-    color: #00e599;
-    border-bottom-color: #00e599;
-}
-
-.dump-tab i {
-    font-size: 1.15rem;
-}
-
-.dump-tab__count {
-    padding: 0.2rem 0.55rem;
-    border: 1px solid #30303f;
-    border-radius: 999px;
-    color: #8b949e;
-    font-size: 0.75rem;
-}
-
-.dump-panel[hidden] {
-    display: none !important;
-}
-
-@media (max-width: 480px) {
-    .dump-tab {
-        gap: 0.45rem;
-        font-size: 1rem;
-    }
-}
-
-# Depois apagar é so teste
-
 .page-container {
     position: relative;
     z-index: 1;
@@ -974,4 +887,403 @@ Não sei o que se passa com isto
 .markdown-content li {
     color: #8b949e;
     line-height: 1.8;
+}
+
+/* ========================================
+   8. Homepage redesign — IDENTITY INTERFACE
+   ======================================== */
+
+.hero-container.hero-redesign {
+    width: min(1180px, 100%);
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 8rem 2rem 4rem;
+    box-sizing: border-box;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    align-items: center;
+    gap: clamp(2rem, 5vw, 5rem);
+}
+
+.hero-redesign .hero-intro {
+    min-width: 0;
+    text-align: left;
+}
+
+.hero-redesign .system-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.55rem 0.8rem;
+    border: 1px solid var(--green-border);
+    border-radius: 4px;
+    background: rgba(72, 232, 154, 0.045);
+    color: var(--accent-color);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+}
+
+.hero-redesign .status-indicator {
+    width: 7px;
+    height: 7px;
+    flex: 0 0 7px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    box-shadow: 0 0 10px var(--accent-color);
+    animation: status-pulse 2s ease-in-out infinite;
+}
+
+@keyframes status-pulse {
+    50% { opacity: 0.4; }
+}
+
+.hero-redesign .hero-eyebrow {
+    margin: 2.5rem 0 0.8rem;
+    color: var(--green-muted);
+    font-size: 0.72rem;
+    letter-spacing: 0.13em;
+}
+
+.hero-redesign .hero-name {
+    margin: 0;
+    color: var(--text-color);
+    font-size: clamp(3.8rem, 8vw, 7rem);
+    line-height: 0.98;
+    letter-spacing: -0.09em;
+    overflow-wrap: anywhere;
+}
+
+.hero-redesign .hero-name > span {
+    color: var(--accent-color);
+    text-shadow: 0 0 24px var(--green-glow);
+}
+
+.hero-redesign .hero-role {
+    margin: 1.5rem 0 0;
+    color: #d0dbd2;
+    font-size: clamp(1rem, 1.7vw, 1.3rem);
+    line-height: 1.6;
+}
+
+.hero-redesign .typing-cursor {
+    color: var(--accent-color);
+    animation: blink 1s step-start infinite;
+}
+
+.hero-redesign .hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 1.5rem;
+    color: var(--accent-color);
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+}
+
+.hero-redesign .hero-description {
+    max-width: 34rem;
+    margin: 1.5rem 0 0;
+    color: var(--green-muted);
+    font-size: 0.9rem;
+    line-height: 1.9;
+}
+
+.hero-redesign .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 2rem;
+}
+
+.hero-redesign .hero-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--green-border);
+    border-radius: 4px;
+    color: var(--text-color);
+    background: rgba(255, 255, 255, 0.015);
+    font-size: 0.78rem;
+    text-decoration: none;
+    transition: border-color 0.2s ease, background 0.2s ease,
+                transform 0.2s ease;
+}
+
+.hero-redesign .hero-button:hover {
+    border-color: var(--accent-color);
+    background: rgba(72, 232, 154, 0.07);
+    transform: translateY(-2px);
+}
+
+.hero-redesign .hero-button-primary {
+    color: var(--accent-color);
+    border-color: rgba(72, 232, 154, 0.5);
+}
+
+.hero-redesign .social-icons {
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1.35rem;
+    margin-top: 2rem;
+}
+
+.hero-redesign .social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFF;
+    font-size: 1.15rem;
+    text-decoration: none;
+    text-shadow: none;
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.hero-redesign .social-icons a:hover {
+    color: var(--accent-color);
+    transform: translateY(-2px);
+    text-shadow: 0 0 10px var(--green-glow);
+}
+
+.hero-redesign .social-icons a:focus-visible {
+    outline: 1px solid var(--accent-color);
+    outline-offset: 5px;
+    border-radius: 2px;
+}
+
+.hero-redesign .hero-terminal {
+    min-width: 0;
+    width: 100%;
+}
+
+.hero-redesign .terminal-window {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    box-sizing: border-box;
+    border-color: var(--green-border);
+    background: rgba(5, 9, 6, 0.88);
+    box-shadow: 0 0 50px rgba(72, 232, 154, 0.055);
+    overflow: hidden;
+}
+
+.hero-redesign .terminal-bar {
+    min-height: 2.8rem;
+    box-sizing: border-box;
+    background: rgba(20, 29, 22, 0.9);
+}
+
+.hero-redesign .terminal-title {
+    color: var(--green-muted);
+}
+
+.hero-redesign .terminal-controls {
+    margin-left: auto;
+    color: #587361;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+}
+
+.hero-redesign .terminal-body {
+    padding: clamp(1.2rem, 3vw, 2rem);
+}
+
+.hero-redesign .boot-log {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(0.68rem, 1vw, 0.82rem);
+    line-height: 1.9;
+    overflow-wrap: anywhere;
+}
+
+.hero-redesign .boot-log p {
+    margin: 0 0 0.85rem;
+    color: #bdcbbf;
+}
+
+.hero-redesign .terminal-prompt {
+    color: var(--accent-color);
+    margin-right: 0.45rem;
+}
+
+.hero-redesign .boot-progress {
+    height: 3px;
+    margin: 0.9rem 0 1.4rem;
+    background: #1b2920;
+    overflow: hidden;
+}
+
+.hero-redesign .boot-progress span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: var(--accent-color);
+    transform-origin: left;
+    animation: boot-progress 1.8s ease-out both;
+}
+
+@keyframes boot-progress {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+}
+
+.hero-redesign .terminal-caption {
+    margin: 1rem 0 0;
+    color: #657a6a;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-align: right;
+}
+
+@media (max-width: 850px) {
+    .hero-container.hero-redesign {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 3rem;
+        padding-top: 9rem;
+    }
+
+    .hero-redesign .hero-name {
+        font-size: clamp(3.5rem, 14vw, 6rem);
+    }
+
+    .hero-redesign .hero-terminal {
+        max-width: 650px;
+    }
+}
+
+@media (max-width: 520px) {
+    .hero-container.hero-redesign {
+        padding: 7.5rem 1.2rem 3rem;
+    }
+
+    .hero-redesign .hero-eyebrow {
+        margin-top: 1.8rem;
+    }
+
+    .hero-redesign .hero-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .hero-redesign .hero-button {
+        justify-content: center;
+    }
+
+    .hero-redesign .social-icons {
+        gap: 1.1rem;
+    }
+
+    .hero-redesign .terminal-body {
+        padding: 1rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-redesign .status-indicator,
+    .hero-redesign .typing-cursor,
+    .hero-redesign .boot-progress span {
+        animation: none;
+    }
+
+    .hero-redesign .boot-progress span {
+        transform: scaleX(1);
+    }
+}
+
+/* Objectives — link contrast */
+.markdown-content a:link,
+.markdown-content a:visited {
+    color: #aeb8b1;
+    text-decoration: underline;
+    text-decoration-color: aeb8b1;
+    text-underline-offset: 3px;
+}
+
+.markdown-content a:hover {
+    color: #ffffff;
+    text-decoration-color: currentColor;
+}
+
+/* About — link colours */
+.about-terminal a:link,
+.about-terminal a:visited,
+.about-text a:link,
+.about-text a:visited,
+.about-cta {
+    color: #D6DDD8;
+    text-decoration: underline;
+    text-decoration-color: #AEB8B1;
+    text-underline-offset: 3px;
+    transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.about-terminal a:hover,
+.about-text a:hover,
+.about-cta:hover {
+    color: #FFFFFF;
+    text-decoration-color: #FFFFFF;
+}
+
+/* ========================================
+   Homepage — Contact socials animation
+   ======================================== */
+
+.hero-redesign .contact-socials[hidden] {
+    display: none;
+}
+
+.hero-redesign .contact-socials {
+    margin-top: 1.5rem;
+    transform-origin: top center;
+}
+
+.hero-redesign .contact-socials .social-icons {
+    margin-top: 0;
+}
+
+/* Opening: gradual fade-in */
+.hero-redesign .contact-socials.contact-opening {
+    animation: contact-reveal-in 0.5s ease-out both;
+}
+
+/* Closing: quicker fade-out */
+.hero-redesign .contact-socials.contact-closing {
+    animation: contact-reveal-out 0.35s ease-in both;
+    pointer-events: none;
+}
+
+/* Fade in without moving */
+@keyframes contact-reveal-in {
+    from {
+        opacity: 0;
+        filter: blur(2px);
+    }
+
+    to {
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+/* Fade out without moving */
+@keyframes contact-reveal-out {
+    from {
+        opacity: 1;
+        filter: blur(0);
+    }
+
+    to {
+        opacity: 0;
+        filter: blur(1px);
+    }
+}
+
+/* Accessibility: reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .hero-redesign .contact-socials.contact-opening,
+    .hero-redesign .contact-socials.contact-closing {
+        animation: none;
+    }
 }
