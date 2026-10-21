@@ -5,22 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ .Title }} | {{ .Site.Title }}</title>
+    <meta name="description" content="{{ .Description | default .Site.Params.description }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/avatar.png">
     <link rel="stylesheet" href="/css/main.css">
 </head>
-<body>
+<body id="top">
     <canvas id="bg-canvas"></canvas>
 
     <header class="main-header">
         <div class="header-container">
-            <a href="/" class="brand-name">David Alves</a>
+            <a href="/" class="brand-name">
+                <span>root@</span>0xznx<span class="brand-cursor">_</span>
+            </a>
             <nav class="nav-links">
-                {{ range .Site.Menus.main }}
-                    <a href="{{ .URL | relLangURL }}">{{ .Name }}</a>
-                {{ end }}
+                <a href="/about/">01 About</a>
+                <a href="/dump/">02 0xDump</a>
+                <a href="/objectives/">03 Objectives</a>
+                <a href="/cv/">04 CV</a>
             </nav>
         </div>
     </header>
