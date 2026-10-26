@@ -1,4 +1,5 @@
 ---
 title: "About Me"
-layout: "single"
+description: "A little about my journey into cybersecurity, Linux, and open source."
+layout: "about"
 ---
