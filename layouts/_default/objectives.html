@@ -1,0 +1,57 @@
+{{ define "main" }}
+{{ $ip := site.Data.objectives.in_progress }}
+{{ $done := site.Data.objectives.completed }}
+{{ $total := add (len $ip) (len $done) }}
+{{ $pct := div (mul 100 (len $done)) $total }}
+<main class="page-container objectives-page">
+    <header class="objectives-heading">
+        <span class="objectives-eyebrow">02 / PERSONAL ROADMAP</span>
+        <h1>Objectives<span>.</span></h1>
+        <p>A collection of things I want to build, achieve and experience.</p>
+        <div class="objectives-progress">
+            <div class="objectives-progress-bar"><span style="width: {{ $pct }}%"></span></div>
+            <span class="objectives-progress-label">{{ printf "%02d" (len $done) }}/{{ printf "%02d" $total }} DONE</span>
+        </div>
+    </header>
+
+    <section class="objectives-section">
+        <div class="objectives-section-heading">
+            <h2>In Progress</h2>
+            <span class="objectives-line"></span>
+            <span class="objectives-count">{{ printf "%02d" (len $ip) }} OBJECTIVES</span>
+        </div>
+        <div class="objectives-grid">
+            {{ range $i, $item := $ip }}
+            <article class="objective-card">
+                <div class="objective-meta">
+                    <span class="objective-num">{{ printf "%02d" (add $i 1) }}</span>
+                    <span class="objective-tag">{{ $item.tag }}</span>
+                </div>
+                <h3>{{ if $item.url }}<a href="{{ $item.url }}" target="_blank" rel="noopener">{{ $item.title }}</a>{{ else }}{{ $item.title }}{{ end }}</h3>
+                <p>{{ $item.desc }}</p>
+            </article>
+            {{ end }}
+        </div>
+    </section>
+
+    <section class="objectives-section objectives-completed">
+        <div class="objectives-section-heading">
+            <h2>Completed</h2>
+            <span class="objectives-line"></span>
+            <span class="objectives-count completed-count">{{ printf "%02d" (len $done) }} ACHIEVED</span>
+        </div>
+        <ul class="objectives-log">
+            {{ range $done }}
+            <li>
+                <span class="log-check">[x]</span>
+                {{ if .url }}<a href="{{ .url }}" target="_blank" rel="noopener">{{ .title }} ↗</a>{{ else }}{{ .title }}{{ end }}
+            </li>
+            {{ end }}
+        </ul>
+    </section>
+
+    <footer class="objectives-footer">
+        <p>Build skills. Test limits. Keep moving forward<span>.</span></p>
+    </footer>
+</main>
+{{ end }}
