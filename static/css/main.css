@@ -1749,16 +1749,22 @@ input[type="checkbox"] {
 }
 
 .objectives-progress-bar {
+    display: flex;
+    gap: 4px;
     flex: 1;
-    max-width: 320px;
-    height: 2px;
-    background: var(--green-border);
+    max-width: 420px;
+    height: 10px;
 }
 
 .objectives-progress-bar span {
-    display: block;
-    height: 100%;
+    flex: 1;
+    background: var(--green-border);
+    border-radius: 1px;
+}
+
+.objectives-progress-bar span.is-done {
     background: var(--accent-color);
+    box-shadow: 0 0 8px var(--green-glow);
 }
 
 .objectives-progress-label,

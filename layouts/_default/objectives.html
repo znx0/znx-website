@@ -2,15 +2,16 @@
 {{ $ip := site.Data.objectives.in_progress }}
 {{ $done := site.Data.objectives.completed }}
 {{ $total := add (len $ip) (len $done) }}
-{{ $pct := div (mul 100 (len $done)) $total }}
 <main class="page-container objectives-page">
     <header class="objectives-heading">
-        <span class="objectives-eyebrow">02 / PERSONAL ROADMAP</span>
+        <span class="objectives-eyebrow">PERSONAL ROADMAP</span>
         <h1>Objectives<span>.</span></h1>
         <p>A collection of things I want to build, achieve and experience.</p>
         <div class="objectives-progress">
-            <div class="objectives-progress-bar"><span style="width: {{ $pct }}%"></span></div>
-            <span class="objectives-progress-label">{{ printf "%02d" (len $done) }}/{{ printf "%02d" $total }} DONE</span>
+            <div class="objectives-progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="{{ $total }}" aria-valuenow="{{ len $done }}">
+                {{ range $i := seq $total }}<span class="{{ if le $i (len $done) }}is-done{{ end }}"></span>{{ end }}
+           </div>
+           <span class="objectives-progress-label">{{ printf "%02d" (len $done) }}/{{ printf "%02d" $total }} DONE</span>
         </div>
     </header>
 
