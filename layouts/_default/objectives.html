@@ -10,46 +10,90 @@
         <div class="objectives-progress">
             <div class="objectives-progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="{{ $total }}" aria-valuenow="{{ len $done }}">
                 {{ range $i := seq $total }}<span class="{{ if le $i (len $done) }}is-done{{ end }}"></span>{{ end }}
-           </div>
-           <span class="objectives-progress-label">{{ printf "%02d" (len $done) }}/{{ printf "%02d" $total }} DONE</span>
+            </div>
+            <span class="objectives-progress-label">{{ printf "%02d" (len $done) }}/{{ printf "%02d" $total }} DONE</span>
         </div>
     </header>
 
-    <section class="objectives-section">
-        <div class="objectives-section-heading">
-            <h2>In Progress</h2>
-            <span class="objectives-line"></span>
-            <span class="objectives-count">{{ printf "%02d" (len $ip) }} OBJECTIVES</span>
-        </div>
-        <div class="objectives-grid">
-            {{ range $i, $item := $ip }}
-            <article class="objective-card">
-                <div class="objective-meta">
-                    <span class="objective-num">{{ printf "%02d" (add $i 1) }}</span>
-                    <span class="objective-tag">{{ $item.tag }}</span>
-                </div>
-                <h3>{{ if $item.url }}<a href="{{ $item.url }}" target="_blank" rel="noopener">{{ $item.title }}</a>{{ else }}{{ $item.title }}{{ end }}</h3>
-                <p>{{ $item.desc }}</p>
-            </article>
-            {{ end }}
-        </div>
-    </section>
+    <div class="objectives-tabs">
+        <div class="dump-tabs" role="tablist" aria-label="Objectives sections">
+            <button class="dump-tab is-active"
+                    id="tab-in-progress"
+                    type="button"
+                    role="tab"
+                    aria-selected="true"
+                    aria-controls="panel-in-progress"
+                    data-dump-tab="in-progress">
+                <i class="fa-solid fa-bars-progress"></i>
+                In Progress
+                <span class="dump-tab__count">{{ len $ip }}</span>
+            </button>
 
-    <section class="objectives-section objectives-completed">
-        <div class="objectives-section-heading">
-            <h2>Completed</h2>
-            <span class="objectives-line"></span>
-            <span class="objectives-count completed-count">{{ printf "%02d" (len $done) }} ACHIEVED</span>
+            <button class="dump-tab"
+                    id="tab-completed"
+                    type="button"
+                    role="tab"
+                    aria-selected="false"
+                    aria-controls="panel-completed"
+                    data-dump-tab="completed"
+                    tabindex="-1">
+                <i class="fa-solid fa-circle-check"></i>
+                Completed
+                <span class="dump-tab__count">{{ len $done }}</span>
+            </button>
         </div>
-        <ul class="objectives-log">
-            {{ range $done }}
-            <li>
-                <span class="log-check">[x]</span>
-                {{ if .url }}<a href="{{ .url }}" target="_blank" rel="noopener">{{ .title }} ↗</a>{{ else }}{{ .title }}{{ end }}
-            </li>
-            {{ end }}
-        </ul>
-    </section>
+
+        <section id="panel-in-progress"
+                 class="dump-panel roadmap-panel"
+                 role="tabpanel"
+                 aria-labelledby="tab-in-progress"
+                 data-dump-panel="in-progress">
+            <ol class="roadmap">
+                {{ range $i, $item := $ip }}
+                <li class="roadmap__item">
+                    <span class="roadmap__node" aria-hidden="true"></span>
+                    <div class="roadmap__meta">
+                        <span>{{ printf "%02d" (add $i 1) }} · {{ lower $item.tag }}</span>
+                        {{ with $item.slug }}<span class="roadmap__slug">{{ . }}</span>{{ end }}
+                    </div>
+                    <h3 class="roadmap__title">{{ $item.title }}</h3>
+                    <p class="roadmap__desc">{{ $item.desc }}</p>
+                    {{ with $item.url }}
+                    <a class="roadmap__link" href="{{ . }}" target="_blank" rel="noopener noreferrer">
+                        {{ $item.link_label | default "Open link" }}
+                        <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                    </a>
+                    {{ end }}
+                </li>
+                {{ end }}
+            </ol>
+        </section>
+
+        <section id="panel-completed"
+                 class="dump-panel roadmap-panel"
+                 role="tabpanel"
+                 aria-labelledby="tab-completed"
+                 data-dump-panel="completed"
+                 hidden>
+            <ol class="roadmap">
+                {{ range $i, $item := $done }}
+                <li class="roadmap__item is-done">
+                    <span class="roadmap__node" aria-hidden="true"><i class="fa-solid fa-check"></i></span>
+                    <div class="roadmap__meta">
+                        <span>{{ printf "%02d" (add $i 1) }} · done</span>
+                    </div>
+                    <h3 class="roadmap__title">{{ $item.title }}</h3>
+                    {{ with $item.url }}
+                    <a class="roadmap__link" href="{{ . }}" target="_blank" rel="noopener noreferrer">
+                        {{ $item.link_label | default "Open link" }}
+                        <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                    </a>
+                    {{ end }}
+                </li>
+                {{ end }}
+            </ol>
+        </section>
+    </div>
 
     <footer class="objectives-footer">
         <p>Build skills. Test limits. Keep moving forward<span>.</span></p>
